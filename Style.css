@@ -1,0 +1,110 @@
+/* Configurações globais e Posicionamento ESTÁTICO (padrão) */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+body { background-color: #bec4ed; color: #ffffff; }
+
+/* Posicionamento FIXO */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(11, 13, 23, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000;
+    border-bottom: 1px solid #2a2e43;
+}
+.nav-bar a { color: white; text-decoration: none; margin-left: 20px; }
+
+/* Posicionamento RELATIVO */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 80px;
+}
+.hero-bg {
+    width: 100%; height: 100%;
+    background: url('https://unsplash.com') center/cover;
+    filter: brightness(0.5);
+}
+
+/* Posicionamento ABSOLUTO */
+.hero-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.content-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.card { background: #151a30; padding: 20px; margin-bottom: 15px; border-radius: 5px; }
+
+/* Layout com FLEXBOX */
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+/* Modifique a classe existente para suportar posicionamento relativo interno */
+.gallery-item {
+    position: relative; /* Permite posicionar a legenda de forma absoluta dentro dele */
+    background: #1a233a;
+    flex: 1 1 230px; /* Ajustado para dar um pouco mais de espaço para fotos */
+    height: 250px; /* Altura fixa para manter o padrão visual dos boxes */
+    border-radius: 8px;
+    border: 1px solid #3d496e;
+    overflow: hidden; /* Corta o excesso da imagem para respeitar as bordas arredondadas */
+}
+
+/* Nova regra para controlar o comportamento da imagem */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o box sem achatar ou esticar */
+    transition: transform 0.3s ease; /* Efeito visual suave para quando o mouse passar */
+}
+
+/* Efeito opcional de zoom ao passar o mouse */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Nova regra para criar uma legenda elegante sobreposta à imagem */
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(11, 13, 23, 0.8); /* Fundo escuro semitransparente */
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #3d496e;
+}
+
+/* Layout com GRID e Posicionamento STICKY */
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+.form-inputs { display: flex; flex-direction: column; gap: 15px; }
+.form-inputs input, .form-inputs textarea { padding: 15px; background: #1a233a; border: 1px solid #3d496e; color: white; }
+.form-inputs button { padding: 15px; background: #5a75d1; color: white; border: none; cursor: pointer; }
+
+.sticky-note {
+    position: sticky;
+    top: 120px; /* Gruda no topo quando a tela atinge esta posição */
+    background: #2b395e;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #5a75d1;
+}
